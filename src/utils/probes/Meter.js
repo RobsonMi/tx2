@@ -5,7 +5,7 @@ function Meter(opts) {
   var self = this;
 
   // this._tickInterval = units.SECONDS
-  this._tickInterval = opts.seconds || 5 * units.SECONDS;
+  this._tickInterval = opts.rate || 5 * units.SECONDS;
   this._timeframe = opts.timeframe || 1 * units.MINUTES;
 
   this._rate = new EWMA(this._timeframe, this._tickInterval);
