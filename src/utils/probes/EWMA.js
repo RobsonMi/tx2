@@ -3,8 +3,8 @@ var units = require("./units");
 module.exports = ExponentiallyWeightedMovingAverage;
 
 function ExponentiallyWeightedMovingAverage(timePeriod, tickInterval) {
-  this._timePeriod = timePeriod * units.SECONDS || 1 * units.MINUTES;
-  this._tickInterval = tickInterval * units.SECONDS || ExponentiallyWeightedMovingAverage.TICK_INTERVAL;
+  this._timePeriod = timePeriod || 1 * units.MINUTES;
+  this._tickInterval = tickInterval || ExponentiallyWeightedMovingAverage.TICK_INTERVAL;
   this._alpha = 1 - Math.exp(-this._tickInterval / this._timePeriod);
   this._count = 0;
   this._rate = 0;
